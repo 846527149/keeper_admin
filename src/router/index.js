@@ -68,8 +68,7 @@ export const constantRouterMap = [
 				name: 'Promotion',
 				component: () => import('@/views/alimama/promotion'),
 				meta: {
-					title: '双11促销',
-					icon: 'promotion'
+					title: '双11促销'
 				}
 			},
 			{
@@ -77,8 +76,7 @@ export const constantRouterMap = [
 				name: 'Tree',
 				component: () => import('@/views/tree/index'),
 				meta: {
-					title: '尖端好货',
-					icon: 'boutique'
+					title: '尖端好货'
 				}
 			}
 		]
