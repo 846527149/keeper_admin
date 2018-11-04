@@ -192,7 +192,7 @@ module.exports = {
     }],
     'array-bracket-spacing': [2, 'never'],
     'vue/html-self-closing': 0,
-    "computed-property-spacing": [2,"never"], 
+    "computed-property-spacing": [2,"never"],
   }
 }
 
