@@ -10,6 +10,7 @@
         @keyup.enter.native="handleFilter"
       />
       <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
+      <el-button plain @click="open3">成功</el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -79,56 +80,56 @@
 import { aliGoodsPagedList } from '@/api/alimama'
 
 export default {
-	filters: {
-		statusFilter(status) {
-			const statusMap = {
-				published: 'success',
-				draft: 'gray',
-				deleted: 'danger'
-			}
-			return statusMap[status]
-		}
-	},
-	data() {
-		return {
-			list: null,
-			listLoading: true,
-			total: null,
-			listQuery: {
-				page: 1,
-				limit: 15,
-				title: ''
-			}
-		}
-	},
-	created() {
-		this.fetchData()
-	},
-	methods: {
-		fetchData() {
-			this.listLoading = true
-			aliGoodsPagedList(this.listQuery).then(response => {
-				var data = response.data.Data
-				this.list = data.Items
-				this.total = data.Total
-				this.listLoading = false
-			})
-		},
-		handleFilter() {
-			this.listQuery.page = 1
-			this.fetchData()
-		},
-		handleSizeChange(val) {
-			this.listQuery.limit = val
-			this.fetchData()
-		},
-		handleCurrentChange(val) {
-			this.listQuery.page = val
-			this.fetchData()
-		},
-		showUrl(url) {
-			window.open(url)
-		}
-	}
+  filters: {
+    statusFilter(status) {
+      const statusMap = {
+        published: 'success',
+        draft: 'gray',
+        deleted: 'danger'
+      }
+      return statusMap[status]
+    }
+  },
+  data() {
+    return {
+      list: null,
+      listLoading: true,
+      total: null,
+      listQuery: {
+        page: 1,
+        limit: 15,
+        title: ''
+      }
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      this.listLoading = true
+      aliGoodsPagedList(this.listQuery).then(response => {
+        var data = response.data.Data
+        this.list = data.Items
+        this.total = data.Total
+        this.listLoading = false
+      })
+    },
+    handleFilter() {
+      this.listQuery.page = 1
+      this.fetchData()
+    },
+    handleSizeChange(val) {
+      this.listQuery.limit = val
+      this.fetchData()
+    },
+    handleCurrentChange(val) {
+      this.listQuery.page = val
+      this.fetchData()
+    },
+    showUrl(url) {
+      window.open(url)
+    }
+  }
 }
 </script>

@@ -59,8 +59,8 @@ export const constantRouterMap = [
 		redirect: '/alimama/promotion',
 		name: 'Alimama',
 		meta: {
-			title: '阿里妈妈',
-			icon: 'alimama'
+			title: '阿里巴巴',
+			icon: 'taobao'
 		},
 		children: [
 			{
@@ -88,7 +88,7 @@ export const constantRouterMap = [
 	}
 ]
 export default new Router({
-	/** mode: 'history', //后端支持可开*/
+	mode: 'history',
 	scrollBehavior: () => ({
 		y: 0
 	}),
